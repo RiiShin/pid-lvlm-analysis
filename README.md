@@ -48,7 +48,23 @@ pid/
 
 utils/
 └── output_uni_acc.py  # helper: compute per-modality accuracy from the Stage-2 JSONs
+
+envs/
+├── l_embed_new.yml   # env for Stages 1 & 2 (Torch 2.5 + CUDA 12.4, transformers 4.51, flash-attn)
+├── llava_embed.yml   # env for Stage 3 (Torch 2.1, numpy, tqdm)
+└── README.md         # setup notes
 ```
+
+## Setup
+
+The pipeline uses two conda environments:
+
+```bash
+conda env create -f envs/l_embed_new.yml   # Stages 1 & 2 (devis + embeds)
+conda env create -f envs/llava_embed.yml   # Stage 3 (PID)
+```
+
+See `envs/README.md` for details and flash-attn installation notes.
 
 ## Required Data Layout
 
